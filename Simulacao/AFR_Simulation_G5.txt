@@ -1,0 +1,101 @@
+//--------------------FREQUENCIES------------------------
+DoublePI = 6.283185307179586
+
+fg = 60
+fs = 48k
+fsw = 24k
+adcTrig = 0.5
+
+// ------------------GRID------------------
+
+Rg1 = 0.075
+Lg1 = 1.44m
+Cg1 = 139n
+R_Cg1 = 0.001
+
+
+
+Rg2 = 0.150
+Lg2 = 2.88m
+Cg2 = 276n
+R_Cg2 = 0.001
+
+
+Vg = 127
+
+//---------------------CSI_POWER-----------------
+P = 1000
+Vmax = Vg*sqrt(2)
+Imax = P / (Vg)*sqrt(2)
+V_DC = 225
+
+C = 5u
+L1 = 1m
+L2 = 300u
+Rc = 4.7
+R1 = 0.1
+R2 = 0.01
+
+//-----------------CSI_CONTROL-------------------
+// Desired Gain
+ki = 1 / Imax
+kv = 1 / Vmax
+kv_DC = 1 / V_DC
+
+// Control Gains
+kp_v = 0.6
+
+FeedForward = 1 / (kv * V_DC)
+
+//kp_c = 0.4517
+// Infinite response resonant controller
+//ki_c = 0.0229
+//Harmônico 60 
+//ki_1_c = 7520.97281269396 
+// ki_1_c = 4.0845e+04 //considering single resonant
+//Harmônico 180 
+//ki_3_c = 7370.17636532165 
+//Harmônico 300 
+//ki_5_c = 7068.58347057703 
+//Harmônico 420 
+//ki_7_c = 6616.1941284601 
+//Harmônico 540 
+//ki_9_c = 6013.00833897086 
+
+// CALCULATED CONTROL GAINS
+kp_c = 0.4384
+ki_c = 0.0415
+ki_1_c =  7520.9728
+ki_3_c = 7370.1764
+ki_7_c = 6616.1941
+
+
+//-------------------BOOST---------------------
+// Power
+C_cc = 1m
+ 
+// Control
+kp_cc = 1.96
+ki_cc =  19.24
+
+fc_dc = 6
+
+
+//Filtro em 120Hz
+//Frequência de amostragem: fsb = 48kHz; banda passante: Bb = 560Hz; ganho: kres = 10000
+n_1_cc_120 = 0.964649591628284 
+n_2_cc_120 = -1.92905411027493 
+n_3_cc_120 = 0.964642520839531 
+d_1_cc_120 = 1 
+d_2_cc_120 = -1.92905411027493 
+d_3_cc_120 = 0.929292112467815 
+
+// Cargas passiva e ativa
+RL = 51.1 // 30.6 //
+
+Cret = 470u*6
+Rret = 50
+Lret = 300u//1.5m
+Lret_dc = 8m
+
+
